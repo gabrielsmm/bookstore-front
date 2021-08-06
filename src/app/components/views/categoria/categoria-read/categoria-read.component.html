@@ -2,8 +2,8 @@
     <div class="title">
         <h1>Categorias</h1>
     </div>
-    
-    <button class="mat-elevation-z8" mat-stroked-button color="primary">NOVA CATEGORIA</button>
+
+    <button class="mat-elevation-z8" (click)="navegarParaCategoriaCreate()" mat-stroked-button color="primary">NOVA CATEGORIA</button>
 
     <div class="mat-elevation-z8 content-table">
         <table class="table" mat-table [dataSource]="categorias">
