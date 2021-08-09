@@ -13,6 +13,7 @@ import { HomeComponent } from './components/views/home/home.component';
 import { CategoriaReadComponent } from './components/views/categoria/categoria-read/categoria-read.component';
 import { CategoriaCreateComponent } from './components/views/categoria/categoria-create/categoria-create.component';
 import { FormsModule } from '@angular/forms';
+import { CategoriaDeleteComponent } from './components/views/categoria/categoria-delete/categoria-delete.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     HomeComponent,
     CategoriaReadComponent,
-    CategoriaCreateComponent
+    CategoriaCreateComponent,
+    CategoriaDeleteComponent
   ],
   imports: [
     BrowserModule,
