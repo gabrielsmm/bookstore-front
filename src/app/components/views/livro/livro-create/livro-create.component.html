@@ -1,0 +1,21 @@
+<form>
+    <h1>CRIANDO UM NOVO LIVRO</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Título</mat-label>
+        <input matInput [(ngModel)]="livro.titulo" type="text" name="nome" placeholder="">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Nome do Autor</mat-label>
+        <textarea matInput [(ngModel)]="livro.nomeAutor" type="text" name="descricao" placeholder=""></textarea>
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Texto</mat-label>
+        <textarea matInput [(ngModel)]="livro.texto" type="text" name="descricao" placeholder=""></textarea>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button (click)="create()" class="mat-elevation-z8" mat-stroked-button color="primary">CRIAR</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="warn">CANCELAR</button>
+    </div>
+</form>

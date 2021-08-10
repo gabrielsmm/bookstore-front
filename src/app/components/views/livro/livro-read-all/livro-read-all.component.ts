@@ -27,5 +27,4 @@ export class LivroReadAllComponent implements OnInit {
       this.livros = resposta;
     });
   }
-
 }
