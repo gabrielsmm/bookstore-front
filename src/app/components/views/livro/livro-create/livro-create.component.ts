@@ -1,3 +1,4 @@
+import { CategoriaService } from './../../categoria/categoria.service';
 import { LivroService } from './../livro.service';
 import { Livro } from './../livro.model';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LivroCreateComponent implements OnInit {
 
   id_cat: string = "";
+  public nome_cat: string = "";
 
   livro: Livro = {
     titulo: '',
@@ -18,10 +20,12 @@ export class LivroCreateComponent implements OnInit {
     texto: ''
   };
 
-  constructor(private router: Router, private route: ActivatedRoute, private service: LivroService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: LivroService,
+    private categoriaService: CategoriaService) { }
 
   ngOnInit(): void {
     this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
+    this.findCategoria();
   }
 
   create(){
@@ -37,5 +41,11 @@ export class LivroCreateComponent implements OnInit {
 
   cancel(){
     this.router.navigate([`categorias/${this.id_cat}/livros`]);
+  }
+
+  findCategoria(){
+    this.categoriaService.findById(this.id_cat).subscribe((resposta) => {
+      this.nome_cat = resposta.nome;
+    })
   }
 }

@@ -1,7 +1,8 @@
+import { InterceptorService } from './components/template/loader/interceptor.service';
 import { MaterialModule } from './material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { CategoriaUpdateComponent } from './components/views/categoria/categoria
 import { LivroReadAllComponent } from './components/views/livro/livro-read-all/livro-read-all.component';
 import { LivroCreateComponent } from './components/views/livro/livro-create/livro-create.component';
 import { LivroUpdateComponent } from './components/views/livro/livro-update/livro-update.component';
+import { LivroDeleteComponent } from './components/views/livro/livro-delete/livro-delete.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { LivroUpdateComponent } from './components/views/livro/livro-update/livr
     CategoriaUpdateComponent,
     LivroReadAllComponent,
     LivroCreateComponent,
-    LivroUpdateComponent
+    LivroUpdateComponent,
+    LivroDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import { LivroUpdateComponent } from './components/views/livro/livro-update/livr
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

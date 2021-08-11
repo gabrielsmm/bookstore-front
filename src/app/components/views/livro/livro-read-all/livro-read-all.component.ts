@@ -1,3 +1,5 @@
+import { LoaderService } from './../../../template/loader/loader.service';
+import { CategoriaService } from './../../categoria/categoria.service';
 import { LivroService } from './../livro.service';
 import { Livro } from './../livro.model';
 import { Component, OnInit } from '@angular/core';
@@ -12,13 +14,16 @@ export class LivroReadAllComponent implements OnInit {
 
   livros: Livro[] = [];
   id_cat: string = "";
+  public nome_cat: string = "";
 
   displayedColumns: string[] = ['id', 'titulo', 'livros', 'acoes'];
 
-  constructor(private service: LivroService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private service: LivroService, private route: ActivatedRoute, private router: Router,
+    private categoriaService: CategoriaService, public loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
+    this.findCategoria();
     this.findAllByCategoria();
   }
 
@@ -26,5 +31,11 @@ export class LivroReadAllComponent implements OnInit {
     this.service.findAllByCategoria(this.id_cat).subscribe((resposta) => {
       this.livros = resposta;
     });
+  }
+
+  findCategoria(){
+    this.categoriaService.findById(this.id_cat).subscribe((resposta) => {
+      this.nome_cat = resposta.nome;
+    })
   }
 }
