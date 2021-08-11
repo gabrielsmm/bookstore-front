@@ -1,3 +1,4 @@
+import { LoaderService } from './../../../template/loader/loader.service';
 import { Categoria } from './../categoria.model';
 import { CategoriaService } from './../categoria.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,7 @@ export class CategoriaReadComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
 
-  constructor(private service: CategoriaService, private router: Router) { }
+  constructor(private service: CategoriaService, private router: Router, public loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.findAll();

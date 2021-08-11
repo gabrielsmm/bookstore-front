@@ -4,12 +4,11 @@ import { Livro } from './../livro.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-livro-update',
-  templateUrl: './livro-update.component.html',
-  styleUrls: ['./livro-update.component.css']
+  selector: 'app-livro-read',
+  templateUrl: './livro-read.component.html',
+  styleUrls: ['./livro-read.component.css']
 })
-export class LivroUpdateComponent implements OnInit {
-
+export class LivroReadComponent implements OnInit {
   id_cat: string = "";
 
   livro: Livro = {
@@ -30,15 +29,6 @@ export class LivroUpdateComponent implements OnInit {
   findById(){
     this.service.findById(this.livro.id!).subscribe((resposta) => {
       this.livro = resposta;
-    })
-  }
-
-  update(){
-    this.service.update(this.livro).subscribe((resposta) => {
-      this.service.mensagem("Livro atualizado com sucesso!");
-      this.router.navigate([`categorias/${this.id_cat}/livros`]);
-    }, err => {
-      this.service.mensagem("Validar se todos os campos estão preenchidos corretamente");
     })
   }
 
