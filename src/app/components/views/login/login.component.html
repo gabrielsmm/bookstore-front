@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-card class="login">
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <form>
+                <p>
+                    <mat-form-field class="input">
+                        <input [(ngModel)]="usuario.username" name="username" type="text" matInput placeholder="Usuário">
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    <mat-form-field class="input">
+                        <input [(ngModel)]="usuario.senha" name="senha" type="password" matInput placeholder="Senha">
+                    </mat-form-field>
+                </p>
+                
+    
+            <!-- <p *ngIf="error" class="error">
+                {{ error }}
+            </p> -->
+    
+                <div class="button">
+                    <button (click)="fazerLogin()" color="primary" mat-raised-button>Login</button>
+                </div>
+    
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

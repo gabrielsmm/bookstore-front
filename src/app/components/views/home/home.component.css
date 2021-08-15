@@ -3,6 +3,23 @@
     margin: 1rem auto;
 }
 
+.home:hover{
+    transform: scale(1.01);
+    transition: 0.5s;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    height: 85%;
+}
+
+i{
+    padding-right: .6rem;
+}
+
 @media(max-width: 450px){
     .home{
         width: 70%;

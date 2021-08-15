@@ -1,0 +1,10 @@
+<div class="content">
+    <p>Escolha uma categoria</p>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <ng-container *ngFor="let categoria of categorias">
+            <mat-button-toggle [routerLink]="['categorias', categoria.id]" class="button" value="bold">{{ categoria.nome }}</mat-button-toggle>
+        </ng-container>
+    </mat-button-toggle-group>
+</div>
+
+<router-outlet></router-outlet>

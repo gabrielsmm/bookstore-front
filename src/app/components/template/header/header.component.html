@@ -1,8 +1,12 @@
 <mat-toolbar class="header">
-    <span>
-        <img src="assets/img/book.png" alt="book">
-    </span>
-    <span>
-        <h1>BOOKSTORE APPLICATION</h1>
-    </span>
+    <div class="container-span">
+        <span>
+            <img src="assets/img/book.png" alt="book">
+        </span>
+        <span>
+            <h1>BOOKSTORE APPLICATION</h1>
+        </span>
+    </div>
+    
+    <button (click)="sair()" class="sair" color="warn" mat-icon-button>Sair<mat-icon>logout</mat-icon></button>
 </mat-toolbar>

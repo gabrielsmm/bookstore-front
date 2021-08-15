@@ -1,7 +1,9 @@
 <div class="loader" *ngIf="loaderService.isLoading">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
-<div class="content">
+<app-header></app-header>
+<app-nav>
+  <div *ngIf="!usingForm" class="content">
     <div class="title">
         <h1>Categorias</h1>
     </div>
@@ -58,4 +60,8 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>         
-</div>
+  </div>
+
+  <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'></router-outlet>
+</app-nav>
+<app-footer></app-footer>

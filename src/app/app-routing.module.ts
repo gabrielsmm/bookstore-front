@@ -1,3 +1,6 @@
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/views/login/login.component';
+import { LivroReadCategoriaComponent } from './components/views/livro/livro-read-categoria/livro-read-categoria.component';
 import { LivroReadComponent } from './components/views/livro/livro-read/livro-read.component';
 import { LivroDeleteComponent } from './components/views/livro/livro-delete/livro-delete.component';
 import { LivroUpdateComponent } from './components/views/livro/livro-update/livro-update.component';
@@ -12,17 +15,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'categorias', component: CategoriaReadComponent},
-  {path: 'categorias/create', component: CategoriaCreateComponent},
-  {path: 'categorias/delete/:id', component: CategoriaDeleteComponent},
-  {path: 'categorias/update/:id', component: CategoriaUpdateComponent},
-  {path: 'categorias/:id_cat/livros', component: LivroReadAllComponent},
-  {path: 'categorias/:id_cat/livros/create', component: LivroCreateComponent},
-  {path: 'categorias/:id_cat/livros/update/:id_livro', component: LivroUpdateComponent},
-  {path: 'categorias/:id_cat/livros/delete/:id_livro', component: LivroDeleteComponent},
-  {path: 'categorias/:id_cat/livros/read/:id_livro', component: LivroReadComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'}
+  {path: 'login', component: LoginComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'categorias', component: CategoriaReadComponent, canActivate: [AuthGuard], children: [
+    {path: 'create', component: CategoriaCreateComponent},
+    {path: 'delete/:id', component: CategoriaDeleteComponent},
+    {path: 'update/:id', component: CategoriaUpdateComponent},
+    {path: ':id_cat/livros', component: LivroReadAllComponent},
+    {path: ':id_cat/livros/create', component: LivroCreateComponent},
+    {path: ':id_cat/livros/update/:id_livro', component: LivroUpdateComponent},
+    {path: ':id_cat/livros/delete/:id_livro', component: LivroDeleteComponent},
+    {path: ':id_cat/livros/read/:id_livro', component: LivroReadComponent}
+  ]},
+  {path: 'livros', component: LivroReadCategoriaComponent, canActivate: [AuthGuard]},
+  {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({

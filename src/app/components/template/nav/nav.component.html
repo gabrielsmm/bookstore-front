@@ -6,13 +6,17 @@
                 Home
             </a>
             <a [routerLink]="['/categorias']" mat-list-item>
-                <i class="material-icons">menu_book</i>
+                <i class="material-icons">list</i>
                 Categorias
+            </a>
+            <a [routerLink]="['/livros']" mat-list-item>
+                <i class="material-icons">menu_book</i>
+                Livros
             </a>
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <router-outlet></router-outlet>
+        <ng-content></ng-content>
     </mat-sidenav-content>
 </mat-sidenav-container>

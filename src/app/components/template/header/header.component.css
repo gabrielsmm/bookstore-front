@@ -3,7 +3,7 @@ img{
 }
 
 .header{
-    justify-content: center;
+    justify-content: space-between;
     height: 10%;
 }
 
@@ -15,4 +15,8 @@ span{
 h1{
     padding-left: 1rem;
     font-size: 1.4rem;
+}
+
+.container-span{
+    display: flex;
 }

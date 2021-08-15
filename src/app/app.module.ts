@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { InterceptorService } from './components/template/loader/interceptor.service';
 import { MaterialModule } from './material.module';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,8 @@ import { LivroCreateComponent } from './components/views/livro/livro-create/livr
 import { LivroUpdateComponent } from './components/views/livro/livro-update/livro-update.component';
 import { LivroDeleteComponent } from './components/views/livro/livro-delete/livro-delete.component';
 import { LivroReadComponent } from './components/views/livro/livro-read/livro-read.component';
+import { LivroReadCategoriaComponent } from './components/views/livro/livro-read-categoria/livro-read-categoria.component';
+import { LoginComponent } from './components/views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { LivroReadComponent } from './components/views/livro/livro-read/livro-re
     LivroCreateComponent,
     LivroUpdateComponent,
     LivroDeleteComponent,
-    LivroReadComponent
+    LivroReadComponent,
+    LivroReadCategoriaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ import { LivroReadComponent } from './components/views/livro/livro-read/livro-re
     FormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
