@@ -24,6 +24,8 @@ import { LivroDeleteComponent } from './components/views/livro/livro-delete/livr
 import { LivroReadComponent } from './components/views/livro/livro-read/livro-read.component';
 import { LivroReadCategoriaComponent } from './components/views/livro/livro-read-categoria/livro-read-categoria.component';
 import { LoginComponent } from './components/views/login/login.component';
+import { RegistrarComponent } from './components/views/registrar/registrar.component';
+import { PagenotfoundComponent } from './components/views/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { LoginComponent } from './components/views/login/login.component';
     LivroDeleteComponent,
     LivroReadComponent,
     LivroReadCategoriaComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrarComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

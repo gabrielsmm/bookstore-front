@@ -20,3 +20,20 @@ h1{
 .container-span{
     display: flex;
 }
+
+.container-actions{
+    display: flex;
+    align-items: center;
+}
+
+.username{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    margin-right: 8px;
+}
+
+.username mat-icon{
+    margin-right: 2px;
+}

@@ -1,3 +1,5 @@
+import { PagenotfoundComponent } from './components/views/pagenotfound/pagenotfound.component';
+import { RegistrarComponent } from './components/views/registrar/registrar.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/views/login/login.component';
 import { LivroReadCategoriaComponent } from './components/views/livro/livro-read-categoria/livro-read-categoria.component';
@@ -16,6 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'registrar', component: RegistrarComponent},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'categorias', component: CategoriaReadComponent, canActivate: [AuthGuard], children: [
     {path: 'create', component: CategoriaCreateComponent},
@@ -28,7 +31,8 @@ const routes: Routes = [
     {path: ':id_cat/livros/read/:id_livro', component: LivroReadComponent}
   ]},
   {path: 'livros', component: LivroReadCategoriaComponent, canActivate: [AuthGuard]},
-  {path: '', redirectTo: '/login', pathMatch: 'full'}
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '**', component: PagenotfoundComponent}
 ];
 
 @NgModule({

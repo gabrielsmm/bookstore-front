@@ -1,3 +1,4 @@
+import { UsuarioService } from './../../../services/usuario.service';
 import { AppService } from './../../../app.service';
 import { Router } from '@angular/router';
 import { Usuario } from './../../../models/usuario.model';
@@ -18,15 +19,16 @@ export class LoginComponent implements OnInit {
     senha: ''
   };
 
-  constructor(private service: LoginService, private appService: AppService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private service: LoginService, private appService: AppService, private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
   fazerLogin(){
-    this.service.login(this.usuario).subscribe((resposta) => {
+    this.usuarioService.login(this.usuario).subscribe((resposta) => {
       this.appService.usuarioAutenticado = true;
+      this.appService.objUsuarioAutenticado = resposta;
       this.router.navigate(['home']);
     }, err => {
       if(err.error.errors !== undefined){
@@ -37,6 +39,10 @@ export class LoginComponent implements OnInit {
         this.service.mensagem("Usuário ou senha incorretos!");
       }
     });
+  }
+
+  irParaRegistrar(){
+    this.router.navigate(['registrar']);
   }
 
 }

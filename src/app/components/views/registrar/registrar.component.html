@@ -1,11 +1,17 @@
 <div class="container">
     <mat-card class="login">
-        <mat-card-title>LOGIN</mat-card-title>
+        <mat-card-title>REGISTRAR</mat-card-title>
         <mat-card-content>
             <form>
                 <p>
                     <mat-form-field class="input">
                         <input [(ngModel)]="usuario.username" name="username" type="text" matInput placeholder="Usuário">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="input">
+                        <input [(ngModel)]="usuario.email" name="email" type="email" matInput placeholder="E-mail">
                     </mat-form-field>
                 </p>
                 
@@ -21,11 +27,10 @@
             </p> -->
     
                 <div class="button">
-                    <button (click)="fazerLogin()" color="primary" mat-raised-button>LOGIN</button>
+                    <button (click)="registrar()" color="primary" mat-raised-button>REGISTRAR</button>
                 </div>
-                <span style="text-align: left;">Ainda não possui login?</span>
                 <div class="button">
-                    <button (click)="irParaRegistrar()" color="accent" mat-raised-button>REGISTRAR</button>
+                    <button (click)="irParaLogin()" color="accent" mat-raised-button>IR PARA LOGIN</button>
                 </div>
     
             </form>

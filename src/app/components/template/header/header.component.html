@@ -8,5 +8,11 @@
         </span>
     </div>
     
-    <button (click)="sair()" class="sair" color="warn" mat-icon-button>Sair<mat-icon>logout</mat-icon></button>
+    <div class="container-actions">
+        <a class="username">
+            <mat-icon>account_circle</mat-icon>
+            <span>{{usuario.username}}</span>
+        </a>
+        <button (click)="sair()" class="sair" color="warn" mat-icon-button>Sair<mat-icon>logout</mat-icon></button>
+    </div>
 </mat-toolbar>
