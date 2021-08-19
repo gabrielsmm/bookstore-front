@@ -30,7 +30,9 @@ const routes: Routes = [
     {path: ':id_cat/livros/delete/:id_livro', component: LivroDeleteComponent},
     {path: ':id_cat/livros/read/:id_livro', component: LivroReadComponent}
   ]},
-  {path: 'livros', component: LivroReadCategoriaComponent, canActivate: [AuthGuard]},
+  {path: 'livros', component: LivroReadCategoriaComponent, canActivate: [AuthGuard], children: [
+    {path: 'categoria/:id_cat', component: LivroReadAllComponent}
+  ]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', component: PagenotfoundComponent}
 ];

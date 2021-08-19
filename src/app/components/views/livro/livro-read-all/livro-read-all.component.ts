@@ -2,7 +2,7 @@ import { LoaderService } from './../../../template/loader/loader.service';
 import { CategoriaService } from './../../categoria/categoria.service';
 import { LivroService } from './../livro.service';
 import { Livro } from './../livro.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -19,9 +19,17 @@ export class LivroReadAllComponent implements OnInit {
   displayedColumns: string[] = ['id', 'titulo', 'livros', 'acoes'];
 
   constructor(private service: LivroService, private route: ActivatedRoute, private router: Router,
-    private categoriaService: CategoriaService, public loaderService: LoaderService) { }
+    private categoriaService: CategoriaService, public loaderService: LoaderService) {
+      router.events.subscribe((resposta) => {
+        this.buscarLivros();
+      })
+     }
 
   ngOnInit(): void {
+    this.buscarLivros();
+  }
+
+  buscarLivros(){
     this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
     this.findCategoria();
     this.findAllByCategoria();

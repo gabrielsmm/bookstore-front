@@ -1,10 +1,16 @@
-<div class="content">
-    <p>Escolha uma categoria</p>
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <ng-container *ngFor="let categoria of categorias">
-            <mat-button-toggle [routerLink]="['categorias', categoria.id]" class="button" value="bold">{{ categoria.nome }}</mat-button-toggle>
-        </ng-container>
-    </mat-button-toggle-group>
-</div>
+<app-header></app-header>
 
-<router-outlet></router-outlet>
+<app-nav>
+    <div class="content">
+        <p>Escolha uma categoria</p>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <ng-container *ngFor="let categoria of categorias">
+                <mat-button-toggle (click)="onValChange(categoria.id)" [routerLink]="['categoria', categoria.id]" class="button" value="bold">{{ categoria.nome }}</mat-button-toggle>
+            </ng-container>
+        </mat-button-toggle-group>
+    </div>
+
+    <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'></router-outlet>
+</app-nav>
+
+<app-footer></app-footer>

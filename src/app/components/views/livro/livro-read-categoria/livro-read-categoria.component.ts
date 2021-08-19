@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Categoria } from './../../categoria/categoria.model';
 import { CategoriaService } from './../../categoria/categoria.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-livro-read-categoria',
@@ -24,8 +24,20 @@ export class LivroReadCategoriaComponent implements OnInit {
     });
   }
 
+  onValChange(id_cat: any){
+    
+  }
+
   irParaLivros(id: any){
     this.router.navigate([`categorias/${id}/livros`]);
+  }
+
+  onActivate(component: any) {
+
+  }
+  
+  onDeactivate(component: any) {
+    
   }
 
 }
