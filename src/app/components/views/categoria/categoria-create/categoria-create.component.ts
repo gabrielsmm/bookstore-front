@@ -2,6 +2,7 @@ import { Categoria } from './../categoria.model';
 import { CategoriaService } from './../categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-categoria-create',
@@ -15,7 +16,7 @@ export class CategoriaCreateComponent implements OnInit {
     descricao: ''
   }
 
-  constructor(private service: CategoriaService, private router: Router) { }
+  constructor(private service: CategoriaService, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +33,8 @@ export class CategoriaCreateComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['categorias']);
+    this.location.back();
+    // this.router.navigate(['categorias']);
   }
 
 }

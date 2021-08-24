@@ -2,6 +2,7 @@ import { Categoria } from './../categoria.model';
 import { CategoriaService } from './../categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-categoria-update',
@@ -16,7 +17,7 @@ export class CategoriaUpdateComponent implements OnInit {
     descricao: ''
   }
 
-  constructor(private service: CategoriaService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: CategoriaService, private router: Router, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.categoria.id = this.route.snapshot.paramMap.get('id')!;
@@ -40,6 +41,7 @@ export class CategoriaUpdateComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['categorias']);
+    this.location.back();
+    // this.router.navigate(['categorias']);
   }
 }

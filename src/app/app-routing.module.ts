@@ -31,7 +31,11 @@ const routes: Routes = [
     {path: ':id_cat/livros/read/:id_livro', component: LivroReadComponent}
   ]},
   {path: 'livros', component: LivroReadCategoriaComponent, canActivate: [AuthGuard], children: [
-    {path: 'categoria/:id_cat', component: LivroReadAllComponent}
+    {path: 'categoria/:id_cat', component: LivroReadAllComponent},
+    {path: 'categoria/:id_cat/create', component: LivroCreateComponent},
+    {path: 'categoria/:id_cat/update/:id_livro', component: LivroUpdateComponent},
+    {path: 'categoria/:id_cat/delete/:id_livro', component: LivroDeleteComponent},
+    {path: 'categoria/:id_cat/read/:id_livro', component: LivroReadComponent}
   ]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', component: PagenotfoundComponent}

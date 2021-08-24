@@ -2,6 +2,7 @@ import { LivroService } from './../livro.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Livro } from './../livro.model';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-livro-update',
@@ -19,7 +20,7 @@ export class LivroUpdateComponent implements OnInit {
     texto: ''
   }
 
-  constructor(private router: Router, private route: ActivatedRoute, private service: LivroService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: LivroService, private location: Location) { }
 
   ngOnInit(): void {
     this.id_cat = this.route.snapshot.paramMap.get('id_cat')!;
@@ -43,7 +44,8 @@ export class LivroUpdateComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate([`categorias/${this.id_cat}/livros`]);
+    this.location.back();
+    // this.router.navigate([`categorias/${this.id_cat}/livros`]);
   }
 
 }
